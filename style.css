@@ -1,0 +1,220 @@
+*,
+*::before,
+*::after {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-family: 'Poppins', sans-serif;
+	background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
+}
+
+.player {
+	height: 100%;
+	max-width: 900px;
+	padding: 2.5rem;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+
+	text-align: center;
+	color: #eee;
+}
+
+.player span {
+	color: #8c8f90;
+}
+
+/* Информация об исполнителе */
+.music_info .cover {
+	width: 18rem;
+	border: 0.8em solid #171a1d;
+	border-radius: 50%;
+	box-shadow: 0.8em 0.8em 1.8em #151618, -0.8em -0.8em 1em #33353b;
+}
+
+.music_info .track_title {
+	margin-top: 0.5em;
+	letter-spacing: 1px;
+	font-weight: 700;
+}
+
+.music_info .artist_name {
+	font-size: 1.25rem;
+	font-weight: 300;
+	letter-spacing: 1.5px;
+}
+
+/* Длительность трека */
+.timeline_slider {
+	width: 100%;
+	margin: 1em 0;
+}
+
+.timeline_slider .timeline {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+
+	font-weight: 300;
+	letter-spacing: 0.5px;
+}
+
+/* Громкость трека */
+.volume_slider {
+	width: 60%;
+	margin: 0.5em 0;
+
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: stretch;
+	gap: 0.2em;
+}
+
+.volume_slider .slider::-webkit-slider-thumb {
+	width: 0;
+}
+
+.volume_slider .volume_icon i {
+	font-size: 1.5em;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.volume_slider .volume_icon i:hover {
+	color: #eee;
+}
+
+/* Основная шкала внутри секций времени и громкости */
+.range_slider {
+	position: relative;
+	margin-top: 0.5em;
+	display: flex;
+	user-select: none;
+}
+
+.range_slider .slider {
+	appearance: none;
+	width: 100%;
+	height: 0.5em;
+
+	background-color: #1f1f1f;
+	border-radius: 3px;
+	outline: none;
+	box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.5);
+	cursor: pointer;
+}
+
+.range_slider .slider::-webkit-slider-thumb {
+	appearance: none;
+	position: relative;
+	width: 1.5em;
+	height: 1.5em;
+	z-index: 3;
+}
+
+.range_slider .slider_thumb {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 1.5em;
+	height: 1.5em;
+
+	background-color: #111;
+	border: 1.5px solid rgba(255, 255, 255, 0.15);
+	border-radius: 50%;
+
+	transform: translate(-50%, -50%);
+	z-index: 2;
+	cursor: pointer;
+}
+
+.range_slider .slider_thumb::before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 0.5em;
+	height: 0.5em;
+
+	background-color: #333;
+	border-radius: inherit;
+
+	transition: all 0.2s ease-in-out;
+}
+
+.range_slider:hover .slider_thumb {
+	border: 1.5px solid rgba(255, 255, 255, 0.5);
+}
+
+.range_slider:hover .slider_thumb::before {
+	background-color: #e75709;
+}
+
+/* Заполняющаяся шкала внутри секций времени и громкости */
+.range_slider .progress {
+	position: absolute;
+	top: 50%;
+	left: 0;
+	transform: translateY(-50%);
+	width: 50%;
+	height: 0.5em;
+
+	border-radius: 3px;
+	background: linear-gradient(90deg, #c72611, #e75709);
+	pointer-events: none;
+}
+
+/* Кнопки управления воспроизведением */
+.controls {
+	width: 70%;
+	margin: 1em 0;
+
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.controls .btn {
+	width: 4em;
+	height: 4em;
+
+	background: linear-gradient(125deg, #1e1f23, #2e3137);
+	border: 0.2em solid #1c2023;
+	border-radius: 50%;
+	box-shadow: 0.25em 0.25em 0.75em #151618, -0.25em -0.25em 0.75em #33353b;
+	color: #c6c6c6;
+
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+
+.controls .btn:hover {
+	filter: brightness(1.25);
+	border: 0.1em solid rgba(255, 255, 255, 0.25);
+	color: #eee;
+}
+
+.controls .btn_main {
+	width: 5em;
+	height: 5em;
+	background: linear-gradient(-60deg, #c72611, #e75709);
+}
+
+@media screen and (max-width: 700px) {
+	.range-slider {
+		width: 100%;
+	}
+}

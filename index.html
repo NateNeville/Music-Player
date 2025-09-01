@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Music Player</title>
+		<link rel="stylesheet" href="./style.css" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"
+			rel="stylesheet" />
+		<script src="https://kit.fontawesome.com/65be437954.js" crossorigin="anonymous"></script>
+	</head>
+	<body>
+		<div class="player">
+			<!-- Информация об исполнителе -->
+			<div class="music_info">
+				<img src="./covers/cover1.jpg" alt="cover" class="cover" />
+
+				<h1 class="track_title">Immortal</h1>
+				<span class="artist_name">NEFFEX</span>
+			</div>
+
+			<!-- Длительность трека -->
+			<div class="timeline_slider">
+				<div class="timeline">
+					<span class="current_time">0:00</span>
+					<span class="full_time">2:55</span>
+				</div>
+
+				<!-- Шкала времени -->
+				<div class="range_slider">
+					<input type="range" min="0" max="100" value="0" class="slider" />
+					<div class="slider_thumb"></div>
+					<div class="progress"></div>
+				</div>
+			</div>
+
+			<!-- Громкость трека -->
+			<div class="volume_slider">
+				<!-- Иконка громкости -->
+				<div class="volume_icon"></div>
+
+				<!-- Шкала громкости -->
+				<div class="range_slider">
+					<input type="range" min="0" max="100" value="50" class="slider" />
+					<div class="progress"></div>
+				</div>
+			</div>
+
+			<!-- Кнопки управления воспроизведением -->
+			<div class="controls">
+				<!-- Предыдущий трек -->
+				<button class="btn" id="btnBackward">
+					<i class="fa-solid fa-backward-fast"></i>
+				</button>
+
+				<!-- Play (Pause) -->
+				<button class="btn btn_main" id="btnPlay">
+					<i class="fa-solid fa-play"></i>
+				</button>
+
+				<!-- Следующий трек -->
+				<button class="btn" id="btnForward">
+					<i class="fa-solid fa-forward-fast"></i>
+				</button>
+			</div>
+		</div>
+
+		<audio id="audio" hidden>
+			<source src="./tracks/Immortal.mp3" />
+		</audio>
+
+		<script src="./script.js" defer></script>
+	</body>
+</html>
